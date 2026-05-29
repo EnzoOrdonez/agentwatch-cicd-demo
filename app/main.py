@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routers.agents import router as agents_router
 from app.routers.templates import router as templates_router
+from app.routers.security import router as security_router
 
 app = FastAPI(
     title="AgentWatch API",
@@ -21,6 +22,7 @@ app.add_middleware(
 
 app.include_router(agents_router)
 app.include_router(templates_router)
+app.include_router(security_router)
 
 
 @app.get("/")
